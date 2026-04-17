@@ -1,61 +1,165 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📌 API Laravel Trello com Services
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-10-red?logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8+-blue?logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange?logo=mysql)
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![License](https://img.shields.io/github/license/leonardoFernandesRonchi/API-LARAVEL-TRELLO-COM-SERVICES)
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📖 Visão Geral
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O **API-LARAVEL-TRELLO-COM-SERVICES** é uma aplicação desenvolvida em **Laravel** que fornece uma API inspirada no funcionamento do Trello.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+A arquitetura utiliza **Services Layer**, separando regras de negócio dos controllers, deixando o código mais organizado, reutilizável e escalável.
 
-## Learning Laravel
+Permite gerenciar:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+* 👤 Usuários
+* 📋 Projetos
+* 👥 Membros de projetos
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Com autenticação segura via **Laravel Sanctum**.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🛠️ Tecnologias Utilizadas
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### ⚙️ Backend
 
-### Premium Partners
+* Laravel 10
+* PHP 8+
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 🗄️ Banco de Dados
 
-## Contributing
+* MySQL (Eloquent ORM)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🔐 Autenticação
 
-## Code of Conduct
+* Laravel Sanctum
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 🧰 Ferramentas
 
-## Security Vulnerabilities
+* Composer
+* PHPUnit
+* Artisan CLI
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 📂 Estrutura do Projeto
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash id="v1l0ps"
+app/
+ ├── Http/Controllers/   # Controllers
+ ├── Models/             # Models (Eloquent)
+ ├── Services/           # Regras de negócio (Service Layer)
+
+routes/api.php           # Rotas da API
+database/                # Migrations e seeds
+config/                  # Configurações
+tests/                   # Testes automatizados
+composer.json            # Dependências PHP
+```
+
+---
+
+## 🚀 Instalação e Configuração
+
+### 1. Clonar repositório
+
+```bash id="q4p2zn"
+git clone https://github.com/leonardoFernandesRonchi/API-LARAVEL-TRELLO-COM-SERVICES.git
+cd API-LARAVEL-TRELLO-COM-SERVICES
+```
+
+### 2. Instalar dependências
+
+```bash id="x8s9ka"
+composer install
+```
+
+### 3. Configurar ambiente
+
+```bash id="b2m7rt"
+cp .env.example .env
+php artisan key:generate
+```
+
+### 4. Configurar banco de dados
+
+* Criar banco no MySQL
+* Atualizar credenciais no `.env`
+
+### 5. Executar migrations
+
+```bash id="d9c3lo"
+php artisan migrate
+```
+
+### 6. Rodar servidor
+
+```bash id="k0w2qs"
+php artisan serve
+```
+
+---
+
+## 📖 Guia de Rotas da API
+
+### 🔑 Usuários
+
+| Método | Rota         | Controller@Action     | Descrição           |
+| ------ | ------------ | --------------------- | ------------------- |
+| POST   | /users/login | UserController@login  | Login               |
+| POST   | /users       | UserController@create | Registro de usuário |
+
+---
+
+### 📋 Projetos
+
+🔒 **Protegidas por auth:sanctum**
+
+| Método | Rota               | Controller@Action          | Descrição     |
+| ------ | ------------------ | -------------------------- | ------------- |
+| POST   | /project           | ProjectsController@create  | Criar projeto |
+| PUT    | /project/{project} | ProjectsController@update  | Atualizar     |
+| DELETE | /project/{project} | ProjectsController@destroy | Excluir       |
+
+---
+
+### 👥 Usuários em Projetos
+
+🔒 **Protegidas por auth:sanctum**
+
+| Método | Rota                                         | Controller@Action              | Descrição         |
+| ------ | -------------------------------------------- | ------------------------------ | ----------------- |
+| POST   | /project/{project}/projectUser               | ProjectUsersController@create  | Adicionar usuário |
+| DELETE | /project/{project}/projectUser/{projectUser} | ProjectUsersController@destroy | Remover usuário   |
+
+---
+
+## 🧪 Testes
+
+```bash id="c1m8de"
+php artisan test
+```
+
+---
+
+## 📈 Melhorias Futuras
+
+* 📋 Implementação completa de tarefas (cards estilo Trello)
+* 💬 Sistema de comentários
+* 📎 Upload de anexos
+* 🔔 Notificações
+* 📊 Dashboard de projetos
+* 🌐 Versionamento da API
+
+---
+
+## 👨‍💻 Autor
+
+**Leonardo Fernandes**
+🔗 https://github.com/leonardoFernandesRonchi
+
